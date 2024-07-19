@@ -1,6 +1,6 @@
 # Bárbaro
 
-“Bárbaro” es un proyecto de software que tiene como objetivo principal la creación de un sistema de gestión de reservas para un hotel. El sistema permitirá a los usuarios realizar reservas de habitaciones, consultar la disponibilidad de las mismas, y realizar pagos de las reservas. Además, el sistema permitirá a los administradores del hotel gestionar las reservas, habitaciones, y usuarios.
+“Bárbaro” es un proyecto de software que tiene como objetivo principal la creación de un sistema de gestión de reservas para una barberia. El sistema permite a los clientes registrarse, reservar citas, ver los servicios disponibles y consultar información sobre la barbería. Por otro lado, los administradores pueden gestionar las reservas, los servicios, los empleados y los clientes.
 
 ## Integrantes
 

@@ -1,0 +1,1218 @@
+{
+	"info": {
+		"_postman_id": "732595dd-6f64-4778-a692-097c294e91aa",
+		"name": "BarBaro",
+		"description": "La api de nuestra aplicación _Bárbaro_ ofrece toda una serie de endpoints.\n\nPara poder acceder correctamente, hemos creado dos variables importantes:\n\n- **API_BEARER_TOKEN**\n    \n\nEn el caso de esta primera variable, es posible que este token no funcione en el momento de hacer funcionar la API. De ser así, recomendamos que se haga login mediante el endpoint facilitado y se copie el resultado del token dentro de esta variable.\n\n- API_REMOTE_URL\n    \n\nAquí se configura la la URI de la API. Es necesario que la URI sea http y no https porque el vhost se ha configurado de esta manera.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28730627",
+		"_collection_link": "https://barbaro-team.postman.co/workspace/My-Workspace~9a695c29-8a2a-4ee7-80ec-b85c14e639b6/collection/32928223-732595dd-6f64-4778-a692-097c294e91aa?action=share&source=collection_link&creator=28730627"
+	},
+	"item": [
+		{
+			"name": "Appointments",
+			"item": [
+				{
+					"name": "show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json"
+							}
+						],
+						"url": {
+							"raw": "{{API_REMOTE_URL}}/api/v1/appointments/:id",
+							"host": [
+								"{{API_REMOTE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"appointments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "Required"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json"
+							}
+						],
+						"url": {
+							"raw": "{{API_REMOTE_URL}}/api/v1/appointments",
+							"host": [
+								"{{API_REMOTE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"appointments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"type\": \"appointments\",\n        \"id\": \"1\",\n        \"attributes\": {\n            \"date\": \"2023-03-20 23:23:23\",\n            \"startTime\": 19,\n            \"status\": \"confirmed\"\n        },\n        \"relationships\": {\n            \"user\": {\n                \"data\": {\n                    \"id\": \"1\",\n                    \"type\": \"users\"\n                }\n            },\n            \"worker\": {\n                \"data\": {\n                    \"id\": \"6\",\n                    \"type\": \"workers\"\n                }\n            },\n            \"services\": {\n                \"data\": [\n                    {\n                        \"id\": \"1\",\n                        \"type\": \"services\"\n                    },\n                    {\n                        \"id\": \"2\",\n                        \"type\": \"services\"\n                    },\n                    {\n                        \"id\": \"3\",\n                        \"type\": \"services\"\n                    }\n                ]\n            }\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_REMOTE_URL}}/api/v1/appointments/:id",
+							"host": [
+								"{{API_REMOTE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"appointments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_REMOTE_URL}}/api/v1/appointments/:id",
+							"host": [
+								"{{API_REMOTE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"appointments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"description": "Required"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"type\": \"appointments\",\n        \"attributes\": {\n            \"date\": \"2023-03-20 23:23:23\",\n            \"startTime\": 19,\n            \"status\": \"pending\"\n        },\n        \"relationships\": {\n            \"user\": {\n                \"data\": {\n                    \"id\": \"1\",\n                    \"type\": \"users\"\n                }\n            },\n            \"worker\": {\n                \"data\": {\n                    \"id\": \"6\",\n                    \"type\": \"workers\"\n                }\n            },\n            \"services\": {\n                \"data\": [\n                    {\n                        \"id\": \"1\",\n                        \"type\": \"services\"\n                    },\n                    {\n                        \"id\": \"2\",\n                        \"type\": \"services\"\n                    },\n                    {\n                        \"id\": \"3\",\n                        \"type\": \"services\"\n                    }\n                ]\n            }\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_REMOTE_URL}}/api/v1/appointments",
+							"host": [
+								"{{API_REMOTE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"appointments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Services",
+			"item": [
+				{
+					"name": "show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API_REMOTE_URL}}/api/v1/services/:id",
+							"host": [
+								"{{API_REMOTE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"services",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3",
+									"description": "Required"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API_REMOTE_URL}}/api/v1/services",
+							"host": [
+								"{{API_REMOTE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"services"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"type\": \"services\",\n    \"id\": \"4\",\n    \"attributes\": {\n        \"name\": \"MODIFICADO\",\n        \"description\": \"Modificando el servicio\",\n        \"price\": 0.5\n    },\n    \"relationships\": {\n        \"appointments\": {\n            \"data\": [\n                {\n                \"type\": \"appointments\",\n                \"id\": \"1\"\n                }\n            ]\n        }\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_REMOTE_URL}}/api/v1/services/:id",
+							"host": [
+								"{{API_REMOTE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"services",
+								":id"
+							],
+							"query": [
+								{
+									"key": "include",
+									"value": "appointments",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_REMOTE_URL}}/api/v1/services/:id",
+							"host": [
+								"{{API_REMOTE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"services",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"description": "Required"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "15|xecDjBCpjzyw0borzDiEAQ6KphRuYqBfW7sTCJth91a5e5cc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"type\": \"services\",\n        \"attributes\": {\n            \"name\": \"PRUEBA\",\n            \"description\": \"Probando el create\",\n            \"price\": 150.40,\n            \"approximateDurationMin\": 120\n        },\n        \"relationships\": {\n            \"appointments\": {\n                \"data\": [\n                    {\n                        \"type\": \"appointments\",\n                        \"id\": \"3\"\n                    }\n                ]\n            }\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_REMOTE_URL}}/api/v1/api/v1/services",
+							"host": [
+								"{{API_REMOTE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"api",
+								"v1",
+								"services"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Workers",
+			"item": [
+				{
+					"name": "show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json"
+							}
+						],
+						"url": {
+							"raw": "{{API_REMOTE_URL}}/api/v1/workers/:id",
+							"host": [
+								"{{API_REMOTE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"workers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json"
+							}
+						],
+						"url": {
+							"raw": "{{API_REMOTE_URL}}/api/v1/workers",
+							"host": [
+								"{{API_REMOTE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"workers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"type\": \"workers\",\n    \"id\": \"11\",\n    \"attributes\": {\n      \"hours\": 40\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_REMOTE_URL}}/api/v1/workers/:id",
+							"host": [
+								"{{API_REMOTE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"workers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "11"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_REMOTE_URL}}/api/v1/workers/:id",
+							"host": [
+								"{{API_REMOTE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"workers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "11",
+									"description": "Required"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"type\": \"workers\",\n    \"attributes\": {\n      \"role\": \"worker\",\n      \"hours\": 24\n    },\n    \"relationships\": {\n      \"schedules\": {\n        \"data\": [\n          {\n            \"type\": \"schedules\",\n            \"id\": \"2\"\n          }\n        ]\n      },\n      \"appointments\": {\n        \"data\": [\n          {\n            \"type\": \"appointments\",\n            \"id\": \"2\"\n          }\n        ]\n      }\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_REMOTE_URL}}/api/v1/workers",
+							"host": [
+								"{{API_REMOTE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"workers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "show",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{API_REMOTE_URL}}/api/v1/users/:id",
+							"host": [
+								"{{API_REMOTE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"description": "Required"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json"
+							}
+						],
+						"url": {
+							"raw": "{{API_REMOTE_URL}}/api/v1/users",
+							"host": [
+								"{{API_REMOTE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"type\": \"users\",\n    \"id\": \"6\",\n    \"attributes\": {\n        \"name\": \"PACO MODIFICADO\",\n        \"email\": \"oleolepaco@email.com\",\n        \"password\": \"pacopacopaco\"\n    },\n    \"relationships\": {\n        \"worker\": {\n            \"data\": {\n                \"type\": \"workers\",\n                \"id\": \"5\"\n            }\n        }\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_REMOTE_URL}}/api/v1/users/:id",
+							"host": [
+								"{{API_REMOTE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6",
+									"description": "Required"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_REMOTE_URL}}/api/v1/users/:id",
+							"host": [
+								"{{API_REMOTE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"description": "Required"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"data\": {\n    \"type\": \"users\",\n    \"attributes\": {\n        \"name\": \"New user\",\n        \"email\": \"newuser@email.com\",\n        \"password\": \"root1234\"\n    },\n    \"relationships\": {\n        \"worker\": {\n            \"data\": {\n                \"type\": \"workers\",\n                \"id\": \"6\"\n            }\n        }\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_REMOTE_URL}}/api/v1/users",
+							"host": [
+								"{{API_REMOTE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.sendRequest({",
+									"    url: 'http://barbaro-api.randion.es/sanctum/csrf-cookie',",
+									"    method: 'GET'",
+									"}, function (error, response, { cookies }) {",
+									"    if (!error) {",
+									"        pm.environment.set('xsrf-token', cookies.get('XSRF-TOKEN'))",
+									"    }",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-XSRF-TOKEN",
+								"value": "{{xsrf-token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@email.com\",\n    \"password\": \"root1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_REMOTE_URL}}/login",
+							"host": [
+								"{{API_REMOTE_URL}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.sendRequest({",
+									"    url: 'http://127.0.0.1:8000/sanctum/csrf-cookie',",
+									"    method: 'GET'",
+									"}, function (error, response, { cookies }) {",
+									"    if (!error) {",
+									"        pm.environment.set('xsrf-token', cookies.get('XSRF-TOKEN'))",
+									"    }",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-XSRF-TOKEN",
+								"value": "{{xsrf-token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"user1\",\n    \"email\": \"user1@email.com\",\n    \"worker_id\": \"12\",\n    \"password\": \"root1234\",\n    \"password_confirmation\": \"root1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_REMOTE_URL}}/register",
+							"host": [
+								"{{API_REMOTE_URL}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"pm.sendRequest({",
+									"    url: 'http://127.0.0.1:8000/sanctum/csrf-cookie',",
+									"    method: 'GET'",
+									"}, function (error, response, { cookies }) {",
+									"    if (!error) {",
+									"        pm.environment.set('xsrf-token', cookies.get('XSRF-TOKEN'))",
+									"    }",
+									"})"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{API_REMOTE_URL}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-XSRF-TOKEN",
+								"value": "{{xsrf-token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_REMOTE_URL}}/logout",
+							"host": [
+								"{{API_REMOTE_URL}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseLocalhost",
+			"value": "127.0.0.1:8000",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "API_BEARER_TOKEN",
+			"value": "128|eNcYBxE6SzXWFgHajEmCjlQntwMePyoWtDCuA15faa85b45e",
+			"type": "string"
+		},
+		{
+			"key": "API_REMOTE_URL",
+			"value": "http://barbaro-api.randion.es",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,21 @@
+created:
+    - database/factories/AppointmentFactory.php
+    - database/factories/WorkerFactory.php
+    - database/factories/ScheduleFactory.php
+    - database/factories/ServiceFactory.php
+    - database/migrations/2024_03_17_192908_create_appointments_table.php
+    - database/migrations/2024_03_17_192909_create_workers_table.php
+    - database/migrations/2024_03_17_192910_create_schedules_table.php
+    - database/migrations/2024_03_17_192911_create_services_table.php
+    - database/migrations/2024_03_17_192912_create_appointment_service_table.php
+    - database/migrations/2024_03_17_192913_create_schedule_worker_table.php
+    - app/Models/Appointment.php
+    - app/Models/Worker.php
+    - app/Models/Schedule.php
+    - app/Models/Service.php
+models:
+    User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string nullable' }
+    Appointment: { status: string, date: date, start_time: time, end_time: time, worker_id: 'id foreign', user_id: 'id foreign', relationships: { belongsToMany: Service } }
+    Worker: { role: string, hours: int, relationships: { hasMany: 'Appointment, User', belongsToMany: Schedule } }
+    Schedule: { manager_id: 'id foreign:workers', date: date, relationships: { belongsToMany: Worker } }
+    Service: { name: string, description: 'longtext nullable', approximate_duration_min: 'int nullable', price: decimal, relationships: { belongsToMany: Appointment } }

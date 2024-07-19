@@ -1,0 +1,24 @@
+models:
+  Appointment:
+    status: string
+    date: date
+    start_time: time
+    end_time: time
+    worker_id: id foreign
+    user_id: id foreign
+    relationships:
+      belongsToMany: Service
+
+  Worker:
+    role: string
+    hours: int
+    relationships:
+      hasMany: Appointment, User
+
+  Service:
+    name: string
+    description: longtext nullable
+    approximate_duration_min: int nullable
+    price: decimal
+    relationships:
+      belongsToMany: Appointment
